@@ -5,8 +5,6 @@
     - git
     - python-dev
     - python-pip
-    - python-pycurl
-    - supervisor
   tags: packages
 
 - name: Install virtualenv
