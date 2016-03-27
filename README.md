@@ -1,5 +1,6 @@
-###
-Sample ansible to deploy a python app using virtualenv and pip
+### Sample ansible to deploy a python app using virtualenv and pip
+
+based on https://github.com/bee-keeper/aws-ansible-django-deployment
 
 Vagrant playbook available.
 
@@ -22,7 +23,7 @@ Run the play book
 $ ansible-playbook -i your-inventory.ini --private-key=/Users/mark/.ssh/gg_rsa --user=mconlin vagrant-main.yml
 ```
 
-Check the playbooks results inside vagrant 
+Check the playbooks results inside vagrant
 ```
 mark@mecmbp ~/workspace/ansible/poc-python-playbook (master *) $ vagrant ssh
 Welcome to Ubuntu 14.04.1 LTS (GNU/Linux 3.13.0-36-generic x86_64)
