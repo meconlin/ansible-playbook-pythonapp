@@ -2,3 +2,9 @@
   pip: virtualenv={{ virtualenv_path }} requirements={{ requirements_file }}
   tags:
     - requirements
+
+
+- name: Run a python command inside the venv
+  command: "{{ virtualenv_path }}/bin/python api-install-test.py"
+  args:
+    chdir: "{{ git_root }}"

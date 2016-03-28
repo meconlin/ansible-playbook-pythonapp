@@ -28,6 +28,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.playbook = "vagrant-main.yml"
     ansible.extra_vars = { user: "vagrant" }
     ansible.limit = 'all'
-    #ansible.verbose = 'vvvv'
+    ansible.verbose = 'v'
   end
 end
