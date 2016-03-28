@@ -23,6 +23,17 @@ Run the play book
 $ ansible-playbook -i your-inventory.ini --private-key=/Users/mark/.ssh/gg_rsa --user=mconlin vagrant-main.yml
 ```
 
+You can run commands inside the venv by using the full path to it.  
+This is not super elegant and Ansible has a built in command for [Django management commands](http://docs.ansible.com/ansible/django_manage_module.html) that be better in some cases.   
+
+Notice we do this inside setup-python-app.yml....
+```
+- name: Run a python command inside the venv
+  command: "{{ virtualenv_path }}/bin/python api-install-test.py"
+  args:
+    chdir: "{{ git_root }}"
+```
+
 Check the playbooks results inside vagrant
 ```
 mark@mecmbp ~/workspace/ansible/poc-python-playbook (master *) $ vagrant ssh
