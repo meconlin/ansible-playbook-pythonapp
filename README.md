@@ -34,18 +34,13 @@ Run python inside virtual env
     chdir: "{{ git_root }}"
 ```
 
-Use a command wrapper to execute commands inside a virtual env
+Use the command wrapper in this repository [venv_exec.j2](https://github.com/meconlin/ansible-playbook-pythonapp/blob/master/roles/web/templates/venv_exec.j2) to execute commands inside a virtual env (eg. you are using make commands to run Django manage.py tasks)
 ```
 - name: execute command inside virtualenv using wrapper
   command: "{{ virtualenv_path }}/execwrapper make clean"
   args:
     chdir: "{{ git_root }}"
 ```
-
-TODO:
-Lots of things in here should be a variable
-
-
 
 Check the playbooks results inside vagrant
 ```
