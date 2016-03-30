@@ -5,6 +5,12 @@
     - git
     - python-dev
     - python-pip
+    - libpq-dev
+    - libjpeg8-dev
+    - libxml2-dev
+    - libxslt-dev
+    - libmemcached-dev
+    - libkyotocabinet-dev
   tags: packages
 
 - name: Install virtualenv

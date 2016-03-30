@@ -1,10 +1,17 @@
 - name: Install packages required by the python repo app inside virtualenv
-  pip: virtualenv={{ virtualenv_path }} requirements={{ requirements_file }}
+  pip: virtualenv={{ virtualenv_path }} requirements={{ requirements_file }} virtualenv_python=python2.7.9
   tags:
     - requirements
 
+- name: create wrapper shell
+  template: src=venv_exec.j2 dest={{ virtualenv_path }}/execwrapper mode=755
 
-- name: Run a python command inside the venv
-  command: "{{ virtualenv_path }}/bin/python api-install-test.py"
+- name: execute command inside virtualenv using wrapper
+  command: "{{ virtualenv_path }}/execwrapper make clean"
   args:
     chdir: "{{ git_root }}"
+
+# - name: Run a python command inside the venv
+#   command: "{{ virtualenv_path }}/bin/python api-install-test.py"
+#   args:
+#     chdir: "{{ git_root }}"

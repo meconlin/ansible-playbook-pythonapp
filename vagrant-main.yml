@@ -7,7 +7,7 @@
     - web
   vars:
     - update_apt_cache: yes
-    - application_name: myapplication
+    - application_name: myapp
     #Web
     - app_root: '/webapps/{{ application_name }}'
     - git_root: '{{ app_root }}/{{ application_name }}'
@@ -17,7 +17,8 @@
     - requirements_file: '{{ git_root }}/requirements.txt'
     #(Web) Git
     - setup_git_repo: yes
-    - git_repo: 'https://github.com/meconlin/autochallenge-rest'
+    - git_repo: 'git@github.com:/getgoing/airborne.git'
+
     # #(Web) Gunicorn
     # - gunicorn_user: '{{ application_user }}'
     # - gunicorn_group: '{{ application_group }}'
