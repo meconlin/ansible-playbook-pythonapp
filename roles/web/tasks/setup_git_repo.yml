@@ -1,20 +1,20 @@
 
 - name: Create the GitHub SSH public key file
-  copy: src="/Users/mark/.ssh/id_vagrant_github.pub"
+  copy: src={{ git_public_key }}
         dest=/home/vagrant/.ssh/id_rsa_github.pub
         mode=0644
         owner=vagrant
         group=vagrant
 
 - name: Create the GitHub SSH private key file
-  copy: src="/Users/mark/.ssh/id_vagrant_github"
+  copy: src={{ git_private_key }}
         dest=/home/vagrant/.ssh/id_rsa_github
         mode=0600
         owner=vagrant
         group=vagrant
 
 - name: Setup/pull the Git repo
-  git: repo={{ git_repo }} dest={{ git_root }} update=yes accept_hostkey=yes key_file=/home/vagrant/.ssh/id_rsa_github version=release.5.3.0
+  git: repo={{ git_repo }} dest={{ git_root }} update=yes accept_hostkey=yes key_file=/home/vagrant/.ssh/id_rsa_github version={{ git_branch }}
   when: setup_git_repo
   #notify: Restart application
   tags:
